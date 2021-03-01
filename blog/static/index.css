@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(128, 128, 128, 0.699);
+}
+nav{
+    /* background-color: blue; */
+    color: white;
+    font-weight: 700;
+}
+h1, h2, h3, h4, h5, h6{
+    text-transform: uppercase;
+}
+.article-metadata h1{
+    color: blue;
+}
