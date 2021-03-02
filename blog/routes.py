@@ -3,7 +3,6 @@ from blog import app
 from blog.forms import RegistrationForm, LoginForm
 
 
-
 post = [
     {
         'author':'Brayoh',
