@@ -4,17 +4,27 @@
 {% block content %}
 
 <h1>
-    hello, {{ user.username }}
+    Welcome to Pitches App.
 </h1>
+<p>Pitch and inspire.</p>
+
+<p>
+    <a href="{{ url_for('blog') }}">Write your Pitch </a>
+</p>
 
 {% for pitch in pitches %}
 
 <div>
+    <h2>Articles from Every one</h2>
     <p>
         Author : {{ pitch.author.username }}
     </p>
     <p>
         Pitch : {{ pitch.body }}
+    </p>
+
+    <p>
+        <a href=" {{ url_for('comment') }} "> Comment </a>
     </p>
 </div>
 
