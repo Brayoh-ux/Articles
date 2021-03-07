@@ -8,4 +8,11 @@ def index():
 
     user = {'username' : 'Brian'}
 
-    return render_template('home.html', user = user)
+    pitches = [
+        {
+            'author': { 'username' : 'John' },
+            'body' : 'My first pitch'
+        }
+    ]
+
+    return render_template('home.html', user = user, pitches = pitches)
