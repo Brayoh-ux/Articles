@@ -4,50 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Kavivanar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Pitches </title>
 </head>
 <body>
     <!-- nav bar -->
-    <div>
-        Pitches App 
-        <a href=" {{ url_for('index') }} "> Home </a>
-        
+    {% block navbar %}
 
-        {% if current_user.is_anonymous %}
-
-        <a href=" {{ url_for('login') }} "> Login </a>
-        <a href=" {{ url_for('register') }} "> Register </a>
-
-        {% else %}
-
-        
-        <a href=" {{ url_for('new_post') }} ">  New Post </a>
-        <a href=" {{ url_for('account') }} ">  Account </a>
-        <a href=" {{ url_for('logout') }} "> Logout </a>
-
-        {% endif %}
-    </div>
-
-    <!-- flashed messages -->
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-
-        {% if messages %}
-
-                {% for category, message in messages %}
-
-                <div class="alert alert-{{ category }} ">
-                    {{ message }}
-                </div>
-
-                {% endfor %}
-            </ul>
-
-        {% endif %}
-
-    {% endwith %}
+    {% include 'navbar.html' %}
+    
+    {% endblock %}
 
 <!-- block content -->
     {%  block content %}

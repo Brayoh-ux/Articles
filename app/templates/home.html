@@ -2,44 +2,48 @@
 
 
 {% block content %}
+<div class="container-fluid">
+    <div class="container">
+        <h1 class=" text-center p-2" style=" font-size: 10vmin; font-family: 'Akaya Telivigala', cursive;">
+            Welcome to Coolest Blog App
+            <br>
+            <p style="font-size: 6vmin;">Pitch and inspire</p>
+        </h1>
+        
+        
+        <p style=" text-align: center; ">
+            <a class= "btn btn-primary" href="{{ url_for('new_post') }}">Write your Pitch </a>
+        </p>
+        
+        
+        {% for post in posts %}
+        
+        <div class="card m-2 border-0 ">
+            <div class="card">
+                <img src=" {{ url_for ('static', filename = 'profilepics/' + post.author.image_file) }} " class="rounded-ciclre article-image" alt="">
+              <div class="card-body">
+                <div class="card-title border-bottom border-bottom-1 border-dark "  >
+                   <h5 style="font-family: 'Akaya Telivigala', cursive; font-size: 5vmin;">  {{post.title}}  </h5>
+                    <small class="text-muted text-right">{{post.date_posted.strftime('%Y-%m-%d')}}</small> <br> <br>
+                </div>
+                <h6 class="card-title " >{{ post.author.username }}</h6> <br>
+                <p class="card-text"> {{ post.content }} </p>
+              </div>
+              <br><br>
+              <div class="card-footer">
+                {% if post.author == current_user %}
+        
+                <p class="text-center "> <a class="btn btn-secondary btn-sm m-1" href=" {{ url_for('update_post', post_id = post.id) }} "> Update  </a>
+                 <a class="btn btn-danger btn-sm m-1" href=" {{ url_for('delete_post', post_id = post.id) }} "> Delete  </a></p>
+                {% endif %}
 
-<h1>
-    Welcome to Pitches App.
-</h1>
-<p>Pitch and inspire.</p>
-
-<p>
-    <a href="{{ url_for('new_post') }}">Write your Pitch </a>
-</p>
-<h2>Articles from Every one</h2>
-
-{% for post in posts %}
-
-<div>
-
-    <img src=" {{ url_for ('static', filename = 'profilepics/' + post.author.image_file) }} " class="rounded-ciclre article-image" alt="">
-    <h2> <a href="#">{{post.title}} </a></h2>
-
-    <p>
-        Author : {{ post.author.username }}
-    </p>
-    <p>
-        Pitch : {{ post.content }}
-    </p>
-    <p>
-        Date posted : <small> {{post.date_posted.strftime('%Y-%m-%d')}} </small>
-    </p>
-
-    {% if post.author == current_user %}
-
-    <p> <a class="btn btn-secondary btn-sm m-1" href=" {{ url_for('update_post', post_id = post.id) }} "> Update  </a></p>
-    <p> <a class="btn btn-danger btn-sm m-1" href=" {{ url_for('delete_post', post_id = post.id) }} "> Delete  </a></p>
-    {% endif %}
-
+            </div>
+            </div>
+            <br><br>
+        {% endfor %}
+        
+        
+    
 </div>
-
-{% endfor %}
-
-
 
 {% endblock %}
