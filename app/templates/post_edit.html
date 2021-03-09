@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>
+    Welcome to Pitches App.
+</h1>
+<p>Pitch and inspire.</p>
+
+<p>
+    <a href="{{ url_for('new_post') }}">Write your Pitch </a>
+</p>
+
+<div>
+
+    <img src=" {{ url_for ('static', filename = 'profilepics/' + post.author.image_file) }} " class="rounded-ciclre article-image" alt="">
+    <h2 > {{post.tile}} </h2>
+    <p>
+        Author : {{ post.author.username }}
+    </p>
+    <p>
+        Pitch : {{ post.content }}
+    </p>
+    <p>
+        Date posted : <small> {{post.date_posted.strftime('%Y-%m-%d')}} </small>
+    </p>
+
+</div>
+
+{% endblock %}
