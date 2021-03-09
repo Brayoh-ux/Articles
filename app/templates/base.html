@@ -22,8 +22,10 @@
 
         {% else %}
 
-        <a href=" {{ url_for('logout') }} "> Logout </a>
+        
+        <a href=" {{ url_for('new_post') }} ">  New Post </a>
         <a href=" {{ url_for('account') }} ">  Account </a>
+        <a href=" {{ url_for('logout') }} "> Logout </a>
 
         {% endif %}
     </div>
