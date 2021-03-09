@@ -4,7 +4,6 @@ asn1crypto==0.24.0
 Babel==2.4.0
 bcrypt==3.2.0
 blinker==1.4
-Brlapi==0.6.6
 certifi==2018.1.18
 cffi==1.14.5
 chardet==3.0.4
