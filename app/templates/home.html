@@ -9,18 +9,22 @@
 <p>Pitch and inspire.</p>
 
 <p>
-    <a href="{{ url_for('blog') }}">Write your Pitch </a>
+    <a href="{{ url_for('account') }}">Write your Pitch </a>
 </p>
+<h2>Articles from Every one</h2>
 
-{% for pitch in pitches %}
+{% for post in posts %}
 
 <div>
-    <h2>Articles from Every one</h2>
+    
     <p>
-        Author : {{ pitch.author.username }}
+        Author : {{ post.author }}
     </p>
     <p>
-        Pitch : {{ pitch.body }}
+        Pitch : {{ post.content }}
+    </p>
+    <p>
+        Date posted : <small> {{post.date_posted}} </small>
     </p>
 
     <p>
