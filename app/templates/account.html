@@ -2,85 +2,90 @@
 
 {% block content %}
 
-    <div class="content-section">
-        <div class="media">
-            <img src="{{ image_file }}" class="rounded-circle account-img" width="100" height="100px"  alt="">
+<br><br>
+   <div class="container">
 
-            <div class="media-body">
-                <h2 class="account-heading">  {{  current_user.username }} </h2>
+        <div class="content-section">
+            <div class="media">
+                <img src="{{ image_file }}" class="rounded-circle account-img mr-2" width="100" height="100px"  alt="">
 
-                <p class="text-secondary"> {{  current_user.email }}</p>
-            </div>
-        </div>
+                <div class="media-body ml-2">
+                    <h2 class="account-heading">  {{  current_user.username }} </h2>
 
-            <form action="" method="POST" enctype="multipart/form-data">
-        
-                {{ form.hidden_tag()  }}
-        
-                <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Account Info</legend>
-        
-                    <div class="form-group">
-                        {{ form.username.label(class= "form-control-label") }} <br>
-        
-                        {% if form.username.errors %}
-        
-                        {{ form.username(class= "form-control is_invalid") }}
-                        <div class="invalid-feedback">
-        
-                            {% for error in form.username.errors %}
-        
-                            <span style="color: red;"> {{ error }} </span>
-        
-                            {% endfor %}
-        
-                        {% else %}
-                        {{ form.username(class= "form-control ") }}
-        
-                        </div>
-                        {%  endif %}
-                        
-                    </div>
-        
-                    <div class="form-group">
-                        {{ form.email.label(class= "form-control-label") }} <br>
-        
-                        {% if form.email.errors %}
-        
-                        {{ form.email(class= "form-control is_invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.email.errors %}
-        
-                            <span> {{ error }} </span>
-        
-                            {% endfor %}
-        
-                        {% else %}
-                        {{ form.email(class= "form-control ") }}
-        
-                        </div>
-                        {%  endif %}
-                    </div>  
-
-                    <div class="form-group">
-                        {{ form.picture.label() }}
-
-                        {{ form.picture(class = "form-control-file") }}
-
-                        {% for error in form.picture.errors %}
-
-                        <span style="color: red;"> {{ error }} </span>
-
-                        {% endfor %}
-                    </div>
-                   
-        
-                </fieldset>
-        
-                <div class="form-group">
-                    {{ form.submit(class = "btn btn-outline-info") }}
+                    <p class="text-secondary"> {{  current_user.email }}</p>
                 </div>
-            </form>
-     
-    </div>
+            </div>
+
+                <br>
+                <form action="" method="POST" enctype="multipart/form-data">
+            
+                    {{ form.hidden_tag()  }}
+            
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Account Info</legend>
+            
+                        <div class="form-group">
+                            {{ form.username.label(class= "form-control-label") }} <br>
+            
+                            {% if form.username.errors %}
+            
+                            {{ form.username(class= "form-control is_invalid") }}
+                            <div class="invalid-feedback">
+            
+                                {% for error in form.username.errors %}
+            
+                                <span style="color: red;"> {{ error }} </span>
+            
+                                {% endfor %}
+            
+                            {% else %}
+                            {{ form.username(class= "form-control ") }}
+            
+                            </div>
+                            {%  endif %}
+                            
+                        </div>
+                         <br>
+                        <div class="form-group">
+                            {{ form.email.label(class= "form-control-label") }} <br>
+            
+                            {% if form.email.errors %}
+            
+                            {{ form.email(class= "form-control is_invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+            
+                                <span> {{ error }} </span>
+            
+                                {% endfor %}
+            
+                            {% else %}
+                            {{ form.email(class= "form-control ") }}
+            
+                            </div>
+                            {%  endif %}
+                        </div>  
+                         <br>
+                        <div class="form-group ">
+                            {{ form.picture.label() }}
+
+                            {{ form.picture(class = "form-control-file") }}
+
+                            {% for error in form.picture.errors %}
+
+                            <span style="color: red;"> {{ error }} </span>
+
+                            {% endfor %}
+                        </div>
+                    
+            
+                    </fieldset>
+            
+                    <div class="form-group text-center">
+                        {{ form.submit(class = "btn btn-outline-info") }}
+                    </div>
+                </form>
+        
+        </div>
+   </div>
 {% endblock %}
