@@ -4,73 +4,70 @@
    
 <div class="content-section">
 
-    <form action="" method="POST">
-
-        {{ form.hidden_tag()  }}
-
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Login</legend>
-
-            <div class="form-group">
-                {{ form.email.label(class= "form-control-label") }} <br>
-
-                {% if form.email.errors %}
-
-                {{ form.email(class= "form-control is_invalid") }}
-                <div class="invalid-feedback">
-                    {% for error in form.email.errors %}
-
-                    <span> {{ error }} </span>
-
-                    {% endfor %}
-
-                {% else %}
-                {{ form.email(class= "form-control ") }}
-
-                </div>
-                {%  endif %}
-            </div>
-
-            <div class="form-group">
-                {{ form.password.label(class= "form-control-label") }} <br>
-                
-                {% if form.password.errors %}
-
-                {{ form.password(class= "form-control is_invalid") }}
-                <div class="invalid-feedback">
-                    {% for error in form.password.errors %}
-
-                    <span> {{ error }} </span>
-
-                    {% endfor %}
-
-                {% else %}
-                {{ form.password(class= "form-control ") }}
-
-                </div>
-                {%  endif %}
-                
-            </div>
-
-        </fieldset>
-
-        <div class="form-group">
-            {{ form.submit(class = "btn btn-outline-info") }}
-        </div>
-
-        <div class="form-check">
-            {{ form.remember_me(class = "form-check-input") }}
-            {{ form.remember_me.label(class = "form-check-label") }}
-        </div>
-    </form>
-   </div>
-
-   <div class="border-top pt-4">
-       <small class="text-muted">
-           Don't have an account? <a href=" {{ url_for ('register') }} " class="ml-2">Sign Up</a>
-       </small>
-   </div>
-
-
+    <br>
+    <div class="row bg-light">
+        <div class="col-md-3">.</div>
+       <div class="col-md-6">
+         <form method = 'POST' action = ''>
+             <!--protect form  -->
+             {{ form.hidden_tag() }}
+  
+          <fieldset class="form-group">
+              <legend class="border-bottom pt-2 pb-2 mb-4">Log In</legend>
+              <br>
+              <div class="form-group">
+                  {{form.email.label(class="form-label")}}
+ 
+                  {% if form.email.errors %}
+ 
+                 {{form.email(class="form-control form-control-sm is-invalid" )}}
+                 <div class="invalid-feedback">
+                     {% for error in form.email.errors  %}
+ 
+                         <span>{{error}} </span>
+                     {% endfor %}
+                 </div>
+                 {% else%}
+                 {{form.email(class="form-control form-control-sm")}}
+                 {% endif %}
+ 
+                  
+              </div>
+              <br>
+              <div class="form-group">
+                  {{form.password.label(class="form-label")}}
+ 
+                  {% if form.password.errors %}
+ 
+                 {{form.password(class="form-control form-control-sm is-invalid" )}}
+                 <div class="invalid-feedback">
+                     {% for error in form.password.errors  %}
+ 
+                         <span>{{error}} </span>
+                     {% endfor %}
+                 </div>
+                 {% else%}
+                 {{form.password(class="form-control form-control-sm")}}
+                 {% endif %}
+                  
+              </div>
+              <div class="form-check">
+                  {{form.remember_me(class="form-check-input")}}
+                  {{form.remember_me.label(class="form-check-label")}}
+              </div>
+             
+          </fieldset>
+          <br>
+          <div class="d-grid gap-2 col-6 form-group mx-auto">
+              {{form.submit(class="btn btn-primary " )}}
+          </div>
+         </form>
+         <br>
+         <p class="text-muted border-top ">Don't have an account? <a href="{{url_for('register')}}"> Register now!</a></p>
+       </div>
+       <div class="col-md-3">.</div>
+    </div>
+    p
+    <br>
 
 {% endblock %}
