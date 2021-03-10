@@ -4,7 +4,7 @@ from app.forms import PostForm ,LoginForm, RegisterForm, UpdateForm
 from flask_login import login_required,  current_user, login_user, logout_user
 from app.models import User, Post
 import secrets, os
-
+import requests, json
 
 
 @app.route('/')
@@ -12,7 +12,14 @@ def index():
 
     posts = Post.query.all()
 
-    return render_template('home.html', posts = posts)
+    response = requests.get('http://quotes.stormconsultancy.co.uk/random.json')
+    
+    json_resp = response.json()
+
+    quotes = json_resp
+    # print(quotes['author'] )
+
+    return render_template('home.html', posts = posts, quotes = quotes)
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
