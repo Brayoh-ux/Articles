@@ -13,21 +13,13 @@
         
         <p style=" text-align: center; ">
             <a class= "btn btn-primary" href="{{ url_for('new_post') }}">Write your Blog </a>
+        
+            <h3>
+                Posts by {{ user.username }} ...... <small class="text-muted">{{ posts.total }} posts</small> 
+            </h3>
         </p>
         <br>
-        {% if quotes %}
-
-            <div class="main">
-               <i><img src="../static/profilepics/heart.svg"   alt=""></i>
-               <div class="quote">
-                    {{quotes.quote }}
-                </div>
-                <div class="author">
-                    ~ {{ quotes.author }}
-                </div>
-            </div>
-
-        {% endif %}
+        
         <br>
         
         
@@ -41,7 +33,7 @@
                    <h5 style="font-family: 'Akaya Telivigala', cursive; font-size: 5vmin;">  {{post.title}}  </h5>
                     <small class="text-muted text-right">{{post.date_posted.strftime('%Y-%m-%d')}}</small> <br> <br>
                 </div>
-                <a href="{{ url_for('user_posts', username=post.author.username ) }} ">
+                <a href="#">
                     <h5 class="card-title " >{{ post.author.username }}</h5>
                 </a> <br>
                 <p class="card-text"> {{ post.content }} </p>
@@ -67,10 +59,10 @@
 
                 {% if page_num == posts.page ==page_num %}
 
-                <a href=" {{ url_for('index', page= page_num) }} " class="btn btn-info"> {{ page_num }} </a>
+                <a href=" {{ url_for('user_posts', username = user.username, page= page_num) }} " class="btn btn-info"> {{ page_num }} </a>
                 {% else %}
 
-                <a href=" {{ url_for('index', page= page_num) }} " class="btn btn-outline-info"> {{ page_num }} </a>
+                <a href=" {{ url_for('user_posts', username = user.username, page= page_num) }} " class="btn btn-outline-info"> {{ page_num }} </a>
                 {% endif %}
 
             {% else %}
