@@ -12,8 +12,23 @@
         
         
         <p style=" text-align: center; ">
-            <a class= "btn btn-primary" href="{{ url_for('new_post') }}">Write your Pitch </a>
+            <a class= "btn btn-primary" href="{{ url_for('new_post') }}">Write your Blog </a>
         </p>
+        <br>
+        {% if quotes %}
+
+            <div class="main">
+               <i><img src="../static/profilepics/heart.svg"   alt=""></i>
+               <div class="quote">
+                    {{quotes.quote }}
+                </div>
+                <div class="author">
+                    ~ {{ quotes.author }}
+                </div>
+            </div>
+
+        {% endif %}
+        <br>
         
         
         {% for post in posts %}
@@ -45,5 +60,39 @@
         
     
 </div>
+<style>
+  .main{
+      background: rgba(13, 13, 129, 0.856);
+      color: #fff;
+      place-items: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      width: 700px;
+      height: 300px;
+      display: grid;
+      text-align: center;
+      align-items: center;
+      margin-right: 15vmin;
+      box-shadow: 5px 5px 15px rgba(0, 0,0, .9);
+      border-radius: 10px;
+  }
+  .main img{
+      width: 100px;
+      height: 100px;
+      color: teal;
+  }
+  .quote{
+      font-size: 17px;
+      line-height: 22px;
+      margin: 10px;
+  }
+  .author{
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: tomato;
+      text-align: right;
+      margin-right: 10px;
+  }
+
+</style>
 
 {% endblock %}
